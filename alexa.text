@@ -1,0 +1,125 @@
+from time import sleep
+import random
+from datetime import datetime
+from time import sleep
+from random import choice
+try:
+	import requests, os
+	from fake_useragent import UserAgent
+except:
+	os.system("pip install requests")
+	os.system("pip install fake_useragent")
+
+os.system("cls")
+import requests, os
+from fake_useragent import UserAgent
+
+ua = UserAgent()
+count = 0
+# KIỂM TRA KẾT NỐI MẠNG
+while True:
+	try:
+		r = requests.get(url = 'https://www.google.com/')
+		print(">>> Đã kết nối mạng!")
+		sleep(3)
+		os.system("cls")
+		break
+	except:
+		print(">>> Bạn đang Offline, vui lòng kiểm tra kết nối mạng...")
+		sleep(3)
+os.system("cls")
+
+màu_đen = '\033[1;30m'
+màu_đỏ = '\033[1;31m'
+màu_xanh_lục = '\033[1;32m'
+màu_vàng = '\033[1;33m'
+màu_xanh_dương = '\033[1;34m'
+màu_hồng = '\033[1;35m'
+màu_lam = '\033[1;36m'
+màu_trắng = '\033[1;37m'
+reset_màu = '\033[1;0m'
+
+rand = ["\033[1;31", "\033[1;32m", "\033[1;33m","\033[1;34m", "\033[1;35m", "\033[1;36m","\033[1;37m"]
+os.system('clear')
+sr="\033[1;32m[✓] \033[1;97m=> \033[1;33m"
+key='''\033[1;32mKey Hợp Lệ'''
+t_bao='''\033[1;31m● THÔNG BÁO :'''
+logo = '''
+
+\033[1;33m████████╗██████╗░██╗░░░██╗███╗░░░██╗░██████╗ 
+\033[1;34m╚══██╔══╝██╔══██╗██║░░░██║████╗░░██║██╔════╝
+\033[1;36m ░░██║░░░██████╔╝██║░░░██║██╔██╗░██║██║░░░███╗
+\033[1;35m ░░██║░░░██╔══██╗██║░░░██║██║╚██╗██║██║░░░██ ║
+\033[1;31m ░░██║░░░██║░░██║╚██████╔╝██║ ╚████║╚██████╔╝
+\033[1;32m ░░╚═╝░░░╚═╝░░╚═╝ ╚═════╝░╚═╝  ╚═══╝ ╚═════╝ 
+\033[1;36m Zalo: 0915209132
+'''
+print("\n")
+def logo_chạy(a):
+    from time import sleep
+    a = a.split('\n')
+    c = ''
+    for j in range(0, len(a)):
+        b = a[j] + '\n'
+        for i in b:
+            c += i
+            print(c, end='\r')
+            sleep(0.02)
+        c=''
+logo_chạy(logo)
+tbao= requests.get("https://pastebin.com/raw/SBK3KwSX").text
+link = requests.get("https://pastebin.com/raw/YXWJQd7v").text
+mk1 = requests.get("https://pastebin.com/raw/P9Z86nHE").text
+mk2 = requests.get("https://pastebin.com/raw/9GH9d0wA").text
+print("-"*50)
+logo_chạy(t_bao)
+print(f"{sr} {tbao}")
+print(f"{sr} \033[0;35mNếu không hoạt động hãy chạy lại file")
+print("\033[1;94m-"*50)
+print(choice(rand)+"● KEY")
+print(f"{sr} {link}")
+
+# =====================================
+
+makey = input(f"{sr} Nhập Key :\033[1;97m ")
+while True:
+    if makey not in [mk1, mk2]:
+        print(f"\033[1;31mKeyy Sai !!!")
+        makey = input(f"\033[1;33mNhập lại Key :\033[1;97m ")
+    else:
+        logo_chạy(key)
+        sleep(1)
+        break
+        sleep(3)
+os.system('clear')
+
+
+def make_color():
+	from time import sleep
+	s = ['\033[1;31m[-', '\033[1;32m[\\', '\033[1;33m[|', '\033[1;36m[/']
+	while True:
+		for i in s:
+			print(f' {i}] Đang chạy tools :))', end = '\r')
+			sleep(0.2)
+
+def link(link, ua):
+	global count
+	url = f'https://www.alexa.com/siteinfo/{link}'
+	uas = ua.chrome
+	header = {'User-Agent':str(uas)}
+	requests.get(str(url), headers = header)
+	count += 1
+	make_color()
+
+# url = 'https://www.alexa.com/siteinfo/xuantrungtong.blogspot.com'
+urls = input(f'{màu_đỏ}>>> Nhập những url website cần tăng rank alexa: {màu_xanh_lục}')
+urls = " ".join(urls.split())
+urls = urls.split()
+print('\n')
+try:
+	while True:
+		for url in urls:
+			link(url, ua)
+
+except KeyboardInterrupt:
+	print(f'{reset_màu}>>> Bạn đã đóng chương trình!')
