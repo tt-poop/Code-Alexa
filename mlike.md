@@ -3,10 +3,6 @@ import random
 from datetime import datetime
 from time import sleep
 
-#bang mau
-maul=rand(31,37)
-maui="\033[1;"{maul}"m"
-
 os.system('clear')
 sr="\033[1;32m[✓] \033[1;97m=> \033[1;33m"
 key='''Key Hợp Lệ'''
